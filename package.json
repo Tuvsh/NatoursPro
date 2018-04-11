@@ -1,0 +1,28 @@
+{
+  "name": "pack",
+  "version": "1.0.0",
+  "description": "all packages",
+  "main": "index.js",
+  "scripts": {
+
+    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "devserver":"live-server",
+    "start":"npm-run-all --parallel devserver watch:sass",
+
+    "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+    "concat:css": "concat -o css/style.concat.css css/style.comp.css",
+    "compress:css":"node-sass css/style.concat.css css/style.css --output-style compressed",
+    "build:css":"npm-run-all compile:sass concat:css compress:css"
+  },
+  "author": "tuvshin",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^8.2.0",
+    "concat": "^1.0.3",
+    "emmet": "^1.6.3",
+    "install": "^0.11.0",
+    "node-sass": "^4.8.3",
+    "npm-run-all": "^4.1.2",
+    "postcss-cli": "^5.0.0"
+  }
+}

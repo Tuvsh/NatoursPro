@@ -1,0 +1,41 @@
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;     /* this counts border width and padding to width  */
+}
+
+/* root font size to flexible through all platforme  */
+html {
+    // this defines one rem is 10px is 62.5% of 16px
+    font-size: 62.5%; /*default browser font is 16 and user can change it, but when user changes it will be flexible */
+    
+    @include respond(tab-land) {
+        font-size: 56.25%; // 1 rem 9px
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%; // 1rem 8px
+    }
+
+    @include respond(desktop-big) {
+        font-size: 80%; // 1 rem = 12px, 12/16 (16 is browser default)
+    }
+}
+
+body {
+    /* ENTIRE BODY PADDING LIKE A BORDER */
+    box-sizing: border-box;
+    padding: 3rem; 
+
+    @include respond(tab-port) {
+        padding: 0;
+    }    
+}
+
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}

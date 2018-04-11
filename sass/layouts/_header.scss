@@ -1,0 +1,36 @@
+.header {
+    height: 95vh;
+    background-image: linear-gradient(
+         to right bottom,
+         rgba($color-primary-light, .7),
+         rgba($color-primary-light, .7)), 
+         url(../img/back.jpg); /* you have to use rgba(123,123,123,0.8,)  last one is opacity so you can see imaage*/
+    background-size: cover;
+    background-position: top; /*what ever viewport top of the img remains same  all those to img cuz it is last above*/
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* traingle edge coordinate of four edges  1 2 3-that edge 4 */
+    position: relative;
+
+    @include respond(phone) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
+
+    &__logo {
+        height: 3.5rem;
+
+        &-box {
+            position: absolute;
+            top: 4rem;
+            left: 4rem;
+        }
+    }
+        
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%,-50%);/*size is relative to el itself*/
+        text-align: center;
+    }
+}
